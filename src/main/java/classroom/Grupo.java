@@ -1,7 +1,7 @@
 package classroom;
 
 public class Grupo {
-    private static Persona[] estudiantes;
+    static Persona[] estudiantes;
     Persona profesor;
     Asignatura asignatura;
     int codigo;
@@ -42,6 +42,9 @@ public class Grupo {
 
     public static void cambiarEstudiante(int indice, Persona estudiante) {
          estudiantes[indice]=estudiante;
+         if (estudiantes[indice].getCedula() == estudiante.getCedula()){
+             estudiantes[indice].setCedula(0);
+         }
     }
 
 }
