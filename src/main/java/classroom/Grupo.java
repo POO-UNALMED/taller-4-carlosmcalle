@@ -1,16 +1,15 @@
 package classroom;
 
 public class Grupo {
-
-    Persona[] estudiantes;
-    Persona profesor;
+	static Persona[] estudiantes;
+    static Persona profesor;
     Asignatura asignatura;
-    final int codigo = 0;
+    int codigo;
     String horario;
-
+    
     Grupo(Persona[] estudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario) {
-        this.estudiantes = estudiantes;
-        this.profesor = profesor;
+        Grupo.estudiantes = estudiantes;
+        Grupo.profesor = profesor;
         this.asignatura = asignatura;
         this.codigo = codigo;
         this.horario = horario;
@@ -18,25 +17,31 @@ public class Grupo {
 
     Grupo(int cantidadEstudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario) {
         Persona[] personas = new Persona[cantidadEstudiantes];
-        this(personas, profesor, asignatura, codigo, horario);
+        
+        Grupo.profesor = profesor;
+        this.asignatura = asignatura;
+        this.codigo = codigo;
+        this.horario = horario;
     }
 
     Grupo(Persona[] estudiantes, Persona profesor, Asignatura asignatura) {
+
         this.estudiantes = estudiantes;
         this.profesor = profesor;
         this.asignatura = asignatura;
     }
 
-    void cambiarEstudiante(Persona estudianteViejo, Persona estudianteNuevo) {
-        for (int i = 0; i < estudiantes.length; i++) {
-            if (estudiantes[i].getCedula() == estudianteViejo.getCedula()) {
-                estudiantes[i] = estudianteNuevo;
+    public static void cambiarEstudiante(Persona estudianteViejo, Persona estudianteNuevo) {
+        for (int i = 0; i < Grupo.estudiantes.length; i++) {
+            if (Grupo.estudiantes[i].getCedula() == estudianteViejo.getCedula()) {
+                Grupo.estudiantes[i]=estudianteNuevo;
                 break;
             }
         }
     }
-    
-    void cambiarEstudiante(int indice, Persona estudiante) {
-        estudiantes[indice] = estudiante;
+
+    public static void cambiarEstudiante(int indice, Persona estudiante) {
+         estudiantes[indice]=estudiante;
     }
+
 }
