@@ -8,7 +8,7 @@ public class Persona {
 
     
     Persona(){
-    	this.cedula = 0;
+    	this.cedula = 1;
     	this.nombre = "Sin nombre";
     	totalPersonas++;
     }
